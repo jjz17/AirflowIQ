@@ -22,7 +22,8 @@ dag = DAG(
 )
 
 # Define the OpenAQ API endpoint for real-time air quality data
-openaq_api_url = "https://api.openaq.org/v1/measurements?country=YOUR_COUNTRY&city=YOUR_CITY&parameter=YOUR_PARAMETER"
+url_v1 = "https://api.openaq.org/v1/latest/550?limit=100&page=1&offset=0&sort=asc"
+headers = {"accept": "application/json"}
 
 # Task to extract real-time air quality data
 def extract_data():
@@ -30,24 +31,27 @@ def extract_data():
     response = SimpleHttpOperator(
         task_id="extract_air_quality_data",
         http_conn_id="openaq_api_conn",  # Create a connection in Airflow to store API credentials
-        endpoint=openaq_api_url,
+        endpoint=url_v1,
         method="GET",
-        headers={"Content-Type": "application/json"},
+        headers=headers,
     )
+    print(response)
     return json.loads(response.text)
 
 # Task to transform the data
 def transform_data(data):
     # Example data transformation: Convert JSON to a DataFrame
     df = pd.DataFrame(data["results"])
+    print(df)
     # Additional transformations can be applied here
     return df
 
 # Task to perform data analysis
 def analyze_data(df):
     # Example data analysis: Calculate average air quality
-    average_air_quality = df["value"].mean()
-    return average_air_quality
+    # average_air_quality = df["value"].mean()
+    # return average_air_quality
+    return df["location"]
 
 # Task to trigger alerts based on analysis
 def trigger_alerts(average_air_quality):
@@ -84,12 +88,12 @@ data_analysis_task = PythonOperator(
     dag=dag,
 )
 
-alerting_task = PythonOperator(
-    task_id="trigger_alerts",
-    python_callable=trigger_alerts,
-    provide_context=True,
-    dag=dag,
-)
+# alerting_task = PythonOperator(
+#     task_id="trigger_alerts",
+#     python_callable=trigger_alerts,
+#     provide_context=True,
+#     dag=dag,
+# )
 
 reporting_task = PythonOperator(
     task_id="generate_report",
@@ -99,7 +103,8 @@ reporting_task = PythonOperator(
 )
 
 # Define task dependencies
-data_extraction_task >> data_transformation_task >> data_analysis_task >> alerting_task >> reporting_task
+# data_extraction_task >> data_transformation_task >> data_analysis_task >> alerting_task >> reporting_task
+data_extraction_task >> data_transformation_task >> data_analysis_task >> reporting_task
 
 if __name__ == "__main__":
     dag.cli()
