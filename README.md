@@ -5,7 +5,7 @@ Real-Time Air Quality Insights Data Pipeline
 ### Initial Setup
 1. (Download docker-compose file for airflow) ```curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.3.3/docker-compose.yaml'```
 2. (Create project directories) ```mkdir -p ./dags ./logs ./plugins ./processed_data ./raw_data```
-3. (Generate env file) ```echo -e "AIRFLOW_UID=$(id -u)" > .env```
+3. (Generate env file if using Linux, can skip for MacOS) ```echo -e "AIRFLOW_UID=$(id -u)" > .env```
 4. (Set up virtual environment)
    1. ```python3 -m venv .venv```
    2. ```. .venv/bin/activate```
