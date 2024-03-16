@@ -17,6 +17,3 @@ Real-Time Air Quality Insights Data Pipeline
    1. (Monitor container health in another terminal window) ```docker ps```
 2. Visit [airflow UI](http://localhost:8080) with default credentials (username/password): airflow/airflow
 3. (Shut down all services) ```docker-compose down```
-
-
-Next steps: Kafka, CassandraDB
