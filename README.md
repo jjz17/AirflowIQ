@@ -13,7 +13,7 @@ Real-Time Air Quality Insights Data Pipeline
 5. (Set up databases and create user account) ```docker-compose up airflow-init```
 
 ### General Setup
-1. (Start all services) ```docker-compose up```
+1. (Start all services) ```docker-compose up (optional -d flag)```
    1. (Monitor container health in another terminal window) ```docker ps```
 2. Visit [airflow UI](http://localhost:8080) with default credentials (username/password): airflow/airflow
 3. (Shut down all services) ```docker-compose down```
