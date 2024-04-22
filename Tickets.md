@@ -8,3 +8,5 @@
 # Next Steps
 * Kafka
 * CassandraDB
+* CNN to predict air quality events (high ozone, pollution, etc.) from aerial/satellite images
+  * Need to find database of these images, ideally with labels
