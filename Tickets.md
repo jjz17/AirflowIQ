@@ -10,3 +10,6 @@
 * CassandraDB
 * CNN to predict air quality events (high ozone, pollution, etc.) from aerial/satellite images
   * Need to find database of these images, ideally with labels
+* Develop frontend to display results
+* Create rudimentary suggestion algorithm for whether to go outside 
+* Webscrape air quality or natural disaster news data to identify potential causes of bad air quality
