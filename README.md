@@ -1,6 +1,11 @@
 # AirflowIQ
 Real-Time Air Quality Insights Data Pipeline
 
+## What Problem does AirflowIQ Address?
+Air quality affects the air we breathe. There are many factors that can lead to poor  air quality, but the two most common are related to elevated concentrations of ground-level ozone or particulate matter. Per EPA, ozone can cause a number of health problems, including coughing, breathing difficulty, and lung damage. Exposure to ozone can make the lungs more susceptible to infection, aggravate lung diseases, increase the frequency of asthma attacks, and increase the risk of early death from heart or lung disease. Similarly, particle pollution is linked to a number of health problems, including coughing, wheezing, reduced lung function, asthma attacks, heart attacks, strokes and even early death. 
+
+This project aims to generate timely reports on air quality to inform people when their local air quality is unsafe, and they should remain indoors or take precautions to protect themselves.
+
 ## Usage
 ### Initial Setup
 1. (Download docker-compose file for airflow) ```curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.3.3/docker-compose.yaml'```
@@ -23,3 +28,4 @@ Real-Time Air Quality Insights Data Pipeline
 1. AirNow API (Air quality)
 2. OpenWeatherMap (Not used yet)
 3. tomorrow.io (Weather)
+4. https://github.com/satellite-image-deep-learning/datasets
