@@ -160,8 +160,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
+- [ ] Upgrade from batch processing data (daily) to streaming with Kafka
+- [ ] Migrate local setup to Docker containers and AWS
+- [ ] Create dashboard for displaying and interacting with insights data
 - [x] Add Changelog
-- [x] Add back to top links
 - [ ] Add Additional Templates w/ Examples
 - [ ] Add "components" document to easily copy & paste sections of the readme
 - [ ] Multi-language Support
